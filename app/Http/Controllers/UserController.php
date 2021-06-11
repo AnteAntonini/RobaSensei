@@ -41,7 +41,7 @@ class UserController extends Controller
             'password' => 'required',
             'email' => 'required',
         ]);
-        $user  = new Registration();
+        $user  = new User();
         $user->username = $request['username'];
         $user->password = $request['password'];
         $user->email = $request['email'];
@@ -67,7 +67,7 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit($id)
     {
         $user = User::all()->find($id);
         return view('users.edit')->with('user', $user);
@@ -80,7 +80,7 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
         $request->validate([
             'username' => 'required',
@@ -88,10 +88,10 @@ class UserController extends Controller
             'email' => 'required',
         ]);
         $user = User::all()->find($id);
-        $user->fname = $request['username'];
-        $user->lname = $request['password'];
-        $user->gender = $request['email'];
-        $registration->save();
+        $user->username = $request['username'];
+        $user->password = $request['password'];
+        $user->email = $request['email'];
+        $user->save();
 
         return redirect()->route('users.index');
     }
@@ -102,7 +102,7 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy($id)
     {
         User::all()->find($id)->delete();
         return redirect()->route('users.index');
