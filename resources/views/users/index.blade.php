@@ -15,14 +15,14 @@
         </tr>
         @foreach($users as $row)
             <tr>
-                <th scope="row">{{$row->rid}} </th>
+                <th scope="row">{{$row->id}} </th>
                 <td> {{$row->username}}</td>
                 <td> {{$row->password}}</td>
                 <td> {{$row->email}}</td>
-                <td><a href="/users/{{$row->rid}}/edit" class="btn btn-primary btn-xs"> Edit</a>
+                <td><a href="/users/{{$row->id}}/edit" class="btn btn-primary btn-xs"> Edit</a>
                 </td>
                 <td>
-                    <form action="/users/{{$row->rid}}" method="post">
+                    <form action="/users/{{$row->id}}" method="post">
                         @csrf
                         @method('DELETE')
                         <input type="submit" value="Delete">

@@ -3,10 +3,10 @@
 @section('content')
 
     <div class="container">
-        <form action="/users/{{$user->rid}}" method="post">
+        <form action="/users/{{$user->id}}" method="post">
             @csrf
             @method('PUT')
-            <input type="hidden" name="rid" id="rid" />
+            <input type="hidden" name="id" id="id" />
             <div class="row">
                 <label for="username">Username</label>
                 <input type="text" class="form-control" name="username" id="username" value="{{$user->username}}">
