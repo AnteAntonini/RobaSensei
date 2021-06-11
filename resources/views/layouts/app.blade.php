@@ -114,6 +114,7 @@
       </div>
       <div>
         <div class="content">
+
           <h1 class="content__title">Telecom Ticket System</h1>
           <div class="content__text"></div>
           <h3>
@@ -124,8 +125,10 @@
             >Github</a
           >
           <table class="table-data">
-            @yield('content')
           </table>
+
+          @yield('content')
+
           <article>
             <div id="resultDiv"></div>
           </article>
